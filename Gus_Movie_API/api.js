@@ -1,6 +1,7 @@
 // Import API and Base URL 
-
-
+import { api_key } from "./config.js";
+// const api_key = 'api_key=50fdcbf0d3cdd9daeaa929a0b277b789';
+// console.log(config)
 const api_url = 'https://api.themoviedb.org/3/search/movie/?'
 const image_url = 'https://image.tmdb.org/t/p/w500'
 
@@ -23,6 +24,7 @@ form.addEventListener('submit', function (event) {
     let resultHeader =document.querySelector("#result-header")
     //format the string from user to use in URL
     let searchQuerry = userSearch.replace(/\s+/g, ' ').toLowerCase();
+    console.log({api_key})
 
     axios.get(api_url + api_key + `&query=${searchQuerry}`)
         .then((response) => {
